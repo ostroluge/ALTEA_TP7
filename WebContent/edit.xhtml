@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:core="http://java.sun.com/jsf/core"
+	xmlns:html="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<title>Edition d'une personne</title>
+</head>
+<body>
+	<core:view>
+		<html:panelGrid columns="2" cellpadding="10">
+			<html:outputLink value="list.jsf">
+				<html:outputText value="Lister" />
+			</html:outputLink>
+
+			<html:outputLink value="add.jsf">
+				<html:outputText value="Ajouter" />
+			</html:outputLink>
+		</html:panelGrid>
+		<html:form>
+			<html:panelGrid border="0" columns="3" cellpadding="5">
+				<html:outputText value="Prénom" />
+				<html:inputText id="firstName"
+					value="#{personCtrl.editPerson.firstName}" required="true"
+					requiredMessage="Prénom obligatoire" />
+				<html:message for="firstName" />
+
+				<html:outputText value="Nom" />
+				<html:inputText id="lastName"
+					value="#{personCtrl.editPerson.lastName}" required="true"
+					requiredMessage="Nom obligatoire" />
+				<html:message for="firstName" />
+				<html:outputText />
+				<html:commandButton value="Editer"
+					action="#{personCtrl.updatePerson}" />
+			</html:panelGrid>
+		</html:form>
+	</core:view>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:core="http://java.sun.com/jsf/core"
+	xmlns:html="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<title>Liste des personnes</title>
+</head>
+<body>
+	<core:view>
+		<html:panelGrid columns="2" cellpadding="10">
+			<html:outputLink value="list.jsf">
+				<html:outputText value="Lister" />
+			</html:outputLink>
+
+			<html:outputLink value="add.jsf">
+				<html:outputText value="Ajouter" />
+			</html:outputLink>
+		</html:panelGrid>
+		<html:form>
+			<html:dataTable border="0" rules="all" value="#{personCtrl.persons}"
+				var="p" cellpadding="5">
+				<html:column>
+					<core:facet name="header">
+						<html:outputText value="Prénom" />
+					</core:facet>
+					<html:outputText value="#{p.firstName}" />
+				</html:column>
+				<html:column>
+					<core:facet name="header">
+						<html:outputText value="Nom" />
+					</core:facet>
+					<html:outputText value="#{p.lastName}" />
+				</html:column>
+				<html:column>
+					<core:facet name="header">
+						<html:outputText value="Opérations" />
+					</core:facet>
+					<html:commandButton value="Modifier"
+						action="#{personCtrl.editPerson}">
+						<core:setPropertyActionListener
+							target="#{personCtrl.idPersonSelected}" value="#{p.id}" />
+					</html:commandButton>
+					<html:commandButton value="Supprimer"
+						action="#{personCtrl.deletePerson}">
+						<core:setPropertyActionListener
+							target="#{personCtrl.idPersonSelected}" value="#{p.id}" />
+					</html:commandButton>
+				</html:column>
+			</html:dataTable>
+		</html:form>
+	</core:view>
+</body>
+</html>

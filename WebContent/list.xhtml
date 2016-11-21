@@ -35,6 +35,14 @@
 				</html:column>
 				<html:column>
 					<core:facet name="header">
+						<html:outputText value="Date de naissance" />
+					</core:facet>
+					<html:outputText value="#{p.birthDate}">
+					<core:convertDateTime type="date" dateStyle="short" />
+					</html:outputText>
+				</html:column>
+				<html:column>
+					<core:facet name="header">
 						<html:outputText value="Opérations" />
 					</core:facet>
 					<html:commandButton value="Modifier"

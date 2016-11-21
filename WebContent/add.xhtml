@@ -31,6 +31,12 @@
 					value="#{personCtrl.newPerson.lastName}" required="true"
 					requiredMessage="Nom obligatoire" />
 				<html:message for="firstName" />
+				<html:outputText value="Date de naissance" />
+				<html:inputText id="birthDate"
+					value="#{personCtrl.newPerson.birthDate}" required="true"
+					requiredMessage="Date de naissance obligatoire">
+					<core:convertDateTime type="date" dateStyle="short" />
+				</html:inputText>
 				<html:outputText />
 				<html:commandButton value="Ajouter"
 					action="#{personCtrl.createPerson}" />
